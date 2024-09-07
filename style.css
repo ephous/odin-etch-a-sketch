@@ -1,0 +1,25 @@
+/*#container {
+    display:flex;
+    flex-direction: column;
+    justify-content:stretch;
+    flex-wrap: wrap;
+}*/
+
+.grid-row {
+    display: flex;
+    justify-content:center;
+    gap: 0px;
+}
+
+.grid-square {
+    width: 32px;
+    height: 32px;
+    border-style: solid;
+    border-color: lightslategray;
+    border-width:1px;
+    margin: 0;
+}
+
+.marked {
+    background-color:rebeccapurple;
+}
