@@ -14,6 +14,11 @@ h1 {
   text-align: center;
 }
 
+.checkbox-label {
+  font-size: 14px;
+  text-align:left;
+}
+
 #container {
     display:flex;
     flex-direction: column;
@@ -34,6 +39,7 @@ h1 {
 
 .grid-square {
     flex: 1;
+    background-color:white;
     border-style: solid;
     border-color: lightslategray;
     border-width: 1px;

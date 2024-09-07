@@ -9,7 +9,13 @@
 <body>
     <div id="header-stuff">
       <h1>Odin Etch-a-Sketch</h1>
-      <button onclick="requestNewGrid()">Create a new grid</button>
+      <div>
+        <button onclick="requestNewGrid()">Create a new grid</button>
+        <input type="checkbox" id="draw-without-mousedown" checked>
+        <label for="draw-without-mousedown" class="checkbox-label"> Draw without clicking</label>
+        <input type="checkbox" id="eraser-mode">
+        <label for="deraser-mode" class="checkbox-label"> Eraser mode </label>
+    </div>
     </div>
     <div id="container"></div>
 </body>

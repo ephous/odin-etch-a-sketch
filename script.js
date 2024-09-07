@@ -18,12 +18,19 @@ function createNewGrid(n) {
     "mouseover",
     (e) => {
       //works too: e.target.style.backgroundColor="rebeccapurple";
-      if (e.target.className == "grid-square") {
-        e.target.className = "grid-square marked";
+      if (!drawWithoutMousedown && !mouseDown) return;
+      //if (e.target.className == "grid-square") {
+      if (e.target.className.includes("grid-square")) {
+        if (eraserMode) {
+            e.target.className = "grid-square";
+        } else {
+          e.target.className = "grid-square marked";
+        }
       }
     },
     false
   );
+
 }
 
 function requestNewGrid() {
@@ -35,5 +42,18 @@ function requestNewGrid() {
   createNewGrid( Math.min(100, Math.abs(answer)) );
 }
 
+document.addEventListener( "mousedown", () => {mouseDown = true;}, false);
+document.addEventListener( "mouseup", () => {mouseDown = false;}, false);
+
+document.querySelector("#draw-without-mousedown").addEventListener("click", 
+    (e) => { drawWithoutMousedown = e.target.checked} );
+
+document.querySelector("#eraser-mode").addEventListener("click", 
+    (e) => { eraserMode = e.target.checked} );
+
+
 // initialize
+let mouseDown = false;
+let drawWithoutMousedown = true;
+let eraserMode = false;
 createNewGrid(16);
