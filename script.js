@@ -1,5 +1,15 @@
 const container = document.querySelector("#container");
 
+function updateGridSquare(e) {
+    if (!e.target.className.includes("grid-square")) return;
+    
+    if (eraserMode) {
+      e.target.className = "grid-square";
+    } else {
+      e.target.className = "grid-square marked";
+    }
+};
+  
 function createNewGrid(n) {
   
   for (let i = 0; i < n; i++) {
@@ -19,14 +29,7 @@ function createNewGrid(n) {
     (e) => {
       //works too: e.target.style.backgroundColor="rebeccapurple";
       if (!drawWithoutMousedown && !mouseDown) return;
-      //if (e.target.className == "grid-square") {
-      if (e.target.className.includes("grid-square")) {
-        if (eraserMode) {
-            e.target.className = "grid-square";
-        } else {
-          e.target.className = "grid-square marked";
-        }
-      }
+      updateGridSquare(e);
     },
     false
   );
@@ -42,14 +45,26 @@ function requestNewGrid() {
   createNewGrid( Math.min(100, Math.abs(answer)) );
 }
 
-document.addEventListener( "mousedown", () => {mouseDown = true;}, false);
+document.addEventListener( "mousedown", (e) => {
+    mouseDown = true;
+    updateGridSquare(e);
+}, false);
 document.addEventListener( "mouseup", () => {mouseDown = false;}, false);
 
 document.querySelector("#draw-without-mousedown").addEventListener("click", 
     (e) => { drawWithoutMousedown = e.target.checked} );
 
+const labl = document.querySelector('#draw-or-erase-label');
 document.querySelector("#eraser-mode").addEventListener("click", 
-    (e) => { eraserMode = e.target.checked} );
+    (e) => { 
+      eraserMode = e.target.checked;
+      if (eraserMode){
+        labl.textContent = 'Erase without clicking';
+      } else {
+        labl.textContent = 'Draw without clicking';
+      }
+    }
+);
 
 
 // initialize
