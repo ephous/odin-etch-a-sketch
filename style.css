@@ -1,9 +1,11 @@
-/*#container {
-    display:flex;
-    flex-direction: column;
-    justify-content:stretch;
-    flex-wrap: wrap;
-}*/
+#container {
+    width: 567px;
+    height: 567px;
+    border-style: dotted;
+    border-width: 1px;
+    margin: 16px;
+    padding: 16px;
+}
 
 .grid-row {
     display: flex;
@@ -16,7 +18,7 @@
     height: 32px;
     border-style: solid;
     border-color: lightslategray;
-    border-width:1px;
+    border-width: 1px;
     margin: 0;
 }
 
