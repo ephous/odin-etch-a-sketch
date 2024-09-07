@@ -1,6 +1,24 @@
+body {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+#header-stuff {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
 #container {
-    width: 567px;
-    height: 567px;
+    display:flex;
+    flex-direction: column;
+    width: 512px;
+    height: 512px;
     border-style: dotted;
     border-width: 1px;
     margin: 16px;
@@ -8,14 +26,14 @@
 }
 
 .grid-row {
+    flex: 1;
     display: flex;
     justify-content:center;
     gap: 0px;
 }
 
 .grid-square {
-    width: 32px;
-    height: 32px;
+    flex: 1;
     border-style: solid;
     border-color: lightslategray;
     border-width: 1px;
