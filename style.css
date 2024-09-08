@@ -39,13 +39,10 @@ h1 {
 
 .grid-square {
     flex: 1;
-    background-color:white;
+    background-color: 'white';
     border-style: solid;
     border-color: lightslategray;
-    border-width: 1px;
+    border-width: 1px;   
+    opacity: 0.5;
     margin: 0;
-}
-
-.marked {
-    background-color:rebeccapurple;
 }

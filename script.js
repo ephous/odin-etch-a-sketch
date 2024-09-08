@@ -3,11 +3,17 @@ const container = document.querySelector("#container");
 function updateGridSquare(e) {
     if (!e.target.className.includes("grid-square")) return;
     
+    let opacity;
+    opacity = 0.1 + Number(e.target.style.opacity);
+    opacity = Math.min(opacity, 1.0);
     if (eraserMode) {
-      e.target.className = "grid-square";
+        e.target.style.opacity = 0.5;
+        e.target.style.backgroundColor = 'white';
     } else {
-      e.target.className = "grid-square marked";
+        e.target.style.backgroundColor = 'rebeccapurple';
+        e.target.style.opacity = opacity;
     }
+    
 };
   
 function createNewGrid(n) {
@@ -33,7 +39,6 @@ function createNewGrid(n) {
     },
     false
   );
-
 }
 
 function requestNewGrid() {
@@ -65,7 +70,6 @@ document.querySelector("#eraser-mode").addEventListener("click",
       }
     }
 );
-
 
 // initialize
 let mouseDown = false;
