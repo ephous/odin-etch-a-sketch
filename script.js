@@ -30,7 +30,7 @@ function touch2Mouse(e)
     default: return;
   }
 
-  var mouseEvent = document.createEvent("MouseEvent");
+  var mouseEvent = container.createEvent("MouseEvent");
   mouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
   theTouch.target.dispatchEvent(mouseEvent);
   e.preventDefault();
