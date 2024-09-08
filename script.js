@@ -16,18 +16,28 @@ function updateGridSquare(e) {
     
 };
 
+let currentElementUnderTouch=null;
+
 //https://www.codicode.com/art/easy_way_to_add_touch_support_to_your_website.aspx
 function touch2Mouse(e)
 {
   var theTouch = e.changedTouches[0];
   var mouseEv;
-
+  
   switch(e.type)
   {
     case "touchstart": mouseEv="mousedown"; break;  
     case "touchend":   mouseEv="mouseup"; break;
     case "touchmove":  mouseEv="mouseover"; break;
     default: return;
+  }
+  
+  if( currentElementUnderTouch==null){
+    currentElementUnderTouch = e.target.id;
+  } else {
+    if( currentElementUnderTouch == e.target.id){
+      return;
+    }
   }
 
   var mouseEvent = container.createEvent("MouseEvent");
