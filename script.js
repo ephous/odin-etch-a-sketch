@@ -32,16 +32,16 @@ function touch2Mouse(e) {
     default: return;
   }
   
-  console.log(mouseEv);
+  //console.log(mouseEv);
 
-  if( currentElementUnderTouch==null){
-    currentElementUnderTouch = e.target;
-  } else {
-    if( currentElementUnderTouch === e.target){
-      return;
-    }
-    currentElementUnderTouch = e.target;
-  }
+  //if( currentElementUnderTouch==null){
+  //  currentElementUnderTouch = e.target;
+  //} else {
+  //  if( currentElementUnderTouch === e.target){
+  //    return;
+  //  }
+  //  currentElementUnderTouch = e.target;
+  //}
   
   //var mouseEvent = document.createEvent("MouseEvent");
   //mouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
