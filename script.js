@@ -26,7 +26,7 @@ function touch2Mouse(e)
   {
     case "touchstart": mouseEv="mousedown"; break;  
     case "touchend":   mouseEv="mouseup"; break;
-    case "touchmove":  mouseEv="mousemove"; break;
+    case "touchmove":  mouseEv="mouseover"; break;
     default: return;
   }
 
