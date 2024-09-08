@@ -89,8 +89,7 @@ function createNewGrid(n) {
   container.addEventListener(
     "mouseover",
     (e) => {
-      //works too: e.target.style.backgroundColor="rebeccapurple";
-      if (!drawWithoutMousedown && !mouseDown) return;
+      if (!mouseDown) return;
       updateGridSquare(e);
     },
     false
@@ -118,25 +117,24 @@ document.addEventListener( "mousedown", (e) => {
 }, false);
 document.addEventListener( "mouseup", () => {mouseDown = false;}, false);
 
-document.querySelector("#draw-without-mousedown").addEventListener("click", 
-    (e) => { drawWithoutMousedown = e.target.checked} );
-
 const labl = document.querySelector('#draw-or-erase-label');
 document.querySelector("#eraser-mode").addEventListener("click", 
     (e) => { 
       eraserMode = e.target.checked;
-      if (eraserMode){
-        labl.textContent = 'Erase without clicking';
-      } else {
-        labl.textContent = 'Draw without clicking';
-      }
-    }
+      try{ // label will have been removed for mobile
+        if (eraserMode){
+          labl.textContent = 'Erase without clicking';
+        } else {
+          labl.textContent = 'Draw without clicking';
+        }
+      } catch{
+        // no action
+      }}
 );
 
 
 // initialize
 let mouseDown = false;
-let drawWithoutMousedown = true;
 let eraserMode = false;
 
 // initialize size for mobile phone
