@@ -24,25 +24,41 @@ function touch2Mouse(e) {
   var theTouch = e.changedTouches[0];
   var mouseEv;
   
+  let elem;
+  try {
+    elem = document.elementFromPoint( e.touches[0].clientX, e.touches[0].clientY );
+  } catch {
+    elem = null;
+  }
+
   switch(e.type)
   {
-    case "touchstart": mouseEv="mousedown"; break;  
-    case "touchend":   mouseEv="mouseup"; break;
-    case "touchmove":  mouseEv="mouseover"; break;
+    case "touchstart": {
+      currentElementUnderTouch = elem;
+      mouseEv="mousedown";
+      break;
+    }    
+    case "touchend": {
+      currentElementUnderTouch = null;
+      mouseEv="mouseup";
+      break;
+    }
+    case "touchmove": {
+      if( currentElementUnderTouch == elem ) {
+        console.log('returning...');
+        return;
+      }
+      console.log('continuing...');
+      currentElementUnderTouch = elem;
+      mouseEv="mouseover";
+      theTouch = new Touch(
+        { identifier: 0,
+          target: elem });
+      break;
+    }
     default: return;
   }
-  
-  //console.log(mouseEv);
-
-  //if( currentElementUnderTouch==null){
-  //  currentElementUnderTouch = e.target;
-  //} else {
-  //  if( currentElementUnderTouch === e.target){
-  //    return;
-  //  }
-  //  currentElementUnderTouch = e.target;
-  //}
-  
+    
   //var mouseEvent = document.createEvent("MouseEvent");
   //mouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
   // Create a synthetic click MouseEvent
