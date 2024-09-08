@@ -19,8 +19,8 @@ function updateGridSquare(e) {
 let currentElementUnderTouch=null;
 
 //https://www.codicode.com/art/easy_way_to_add_touch_support_to_your_website.aspx
-function touch2Mouse(e)
-{
+function touch2Mouse(e) {
+  
   var theTouch = e.changedTouches[0];
   var mouseEv;
   
@@ -41,9 +41,16 @@ function touch2Mouse(e)
     currentElementUnderTouch = e.target;
   }
   
-  var mouseEvent = document.createEvent("MouseEvent");
-  mouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
-  theTouch.target.dispatchEvent(mouseEvent);
+  //var mouseEvent = document.createEvent("MouseEvent");
+  //mouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
+  // Create a synthetic click MouseEvent
+  //https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent
+  let evt = new MouseEvent(mouseEv, {
+    bubbles: true,
+    cancelable: true,
+    view: window,
+  });
+  theTouch.target.dispatchEvent(evt);
   e.preventDefault();
 }
 
