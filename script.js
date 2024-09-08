@@ -125,15 +125,14 @@ let eraserMode = false;
 
 // initialize size for mobile phone
 // https://bito.ai/resources/javascript-check-if-mobile-javascript-explained
-alert(navigator.userAgent);
-if (navigator.userAgent.match(/iPhone/i) ||
+if (navigator.userAgent.match(/Linux/i) {
+  createNewGrid(16); // assumed linux computer
+} else if (navigator.userAgent.match(/iPhone/i) ||
     navigator.userAgent.match(/iPad/i) ||
     navigator.userAgent.match(/Android/i)) { 
-    container.style.width = '250px';
-    container.style.height = '250px';
-    alert('Welcome mobile user!');
-    createNewGrid(8); // mobile
+    container.style.width = '280px';
+    container.style.height = '280px';
+    createNewGrid(10); // mobile
   } else {
-    createNewGrid(16); // computer
+    createNewGrid(16); // assumed windows computer
   }
-
