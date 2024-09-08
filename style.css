@@ -28,6 +28,7 @@ h1 {
     border-width: 1px;
     margin: 16px;
     padding: 16px;
+    touch-action: none;
 }
 
 .grid-row {
