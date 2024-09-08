@@ -32,6 +32,8 @@ function touch2Mouse(e) {
     default: return;
   }
   
+  console.log(mouseEv);
+
   if( currentElementUnderTouch==null){
     currentElementUnderTouch = e.target;
   } else {
