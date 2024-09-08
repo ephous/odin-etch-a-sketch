@@ -48,17 +48,13 @@ function createNewGrid(n) {
     false
   );
 
-  /*
   container.addEventListener(
     "touchmove",
     (e) => {
-      ev.preventDefault();
-      ev.stopImmediatePropagation();
       updateGridSquare(e);
     },
     false
   );
-  */
 
 }
 
