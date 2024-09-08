@@ -125,6 +125,7 @@ let eraserMode = false;
 
 // initialize size for mobile phone
 // https://bito.ai/resources/javascript-check-if-mobile-javascript-explained
+alert(navigator.userAgent);
 if (navigator.userAgent.match(/iPhone/i) ||
     navigator.userAgent.match(/iPad/i) ||
     navigator.userAgent.match(/Android/i)) { 
