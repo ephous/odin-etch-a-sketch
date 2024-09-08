@@ -4,6 +4,13 @@ body {
   align-items: center;
 }
 
+/*https://stackoverflow.com/questions/16348031/disable-scrolling-when-touch-moving-certain-element*/
+/* see answer from Mehdi */ 
+.lock-screen {
+    overflow: hidden;
+    position: static;
+}
+
 #header-stuff {
     display: flex;
     flex-direction: column;
@@ -28,7 +35,6 @@ h1 {
     border-width: 1px;
     margin: 16px;
     padding: 16px;
-    touch-action: none;
 }
 
 .grid-row {
