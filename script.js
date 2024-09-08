@@ -15,7 +15,27 @@ function updateGridSquare(e) {
     }
     
 };
-  
+
+//https://www.codicode.com/art/easy_way_to_add_touch_support_to_your_website.aspx
+function touch2Mouse(e)
+{
+  var theTouch = e.changedTouches[0];
+  var mouseEv;
+
+  switch(e.type)
+  {
+    case "touchstart": mouseEv="mousedown"; break;  
+    case "touchend":   mouseEv="mouseup"; break;
+    case "touchmove":  mouseEv="mousemove"; break;
+    default: return;
+  }
+
+  var mouseEvent = document.createEvent("MouseEvent");
+  mouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
+  theTouch.target.dispatchEvent(mouseEvent);
+  e.preventDefault();
+}
+
 function createNewGrid(n) {
   
   for (let i = 0; i < n; i++) {
@@ -40,21 +60,10 @@ function createNewGrid(n) {
     false
   );
 
-  container.addEventListener(
-    "touchstart",
-    (e) => {
-      updateGridSquare(e);
-    },
-    false
-  );
-
-  container.addEventListener(
-    "touchmove",
-    (e) => {
-      updateGridSquare(e);
-    },
-    false
-  );
+  // https://www.codicode.com/art/easy_way_to_add_touch_support_to_your_website.aspx
+  container.addEventListener("touchstart",touch2Mouse, true);
+  container.addEventListener("touchmove",touch2Mouse, true);
+  container.addEventListener("touchend",touch2Mouse, true);
 
 }
 
