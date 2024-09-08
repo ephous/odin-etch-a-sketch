@@ -8,9 +8,7 @@ body {
 /* see answer from Mehdi */ 
 /* seemingly works on Chrome only...not Safari */
 .lock-screen {
-    height: auto;
     overflow: hidden;
-    width: auto;
     position: fixed;
 }
 

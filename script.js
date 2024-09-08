@@ -117,6 +117,17 @@ document.querySelector("#eraser-mode").addEventListener("click",
     }
 );
 
+// initialize size for mobile phone
+// https://bito.ai/resources/javascript-check-if-mobile-javascript-explained
+if (navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/Android/i)) { 
+    container.style.width = '360px';
+    container.style.width = '360px';
+  }
+
+
+
 // initialize
 let mouseDown = false;
 let drawWithoutMousedown = true;
