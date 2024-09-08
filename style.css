@@ -7,8 +7,10 @@ body {
 /*https://stackoverflow.com/questions/16348031/disable-scrolling-when-touch-moving-certain-element*/
 /* see answer from Mehdi */ 
 .lock-screen {
+    height: 100%;
     overflow: hidden;
-    position: static;
+    width: 100%;
+    position: fixed;
 }
 
 #header-stuff {
