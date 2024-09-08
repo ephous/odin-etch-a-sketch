@@ -39,6 +39,17 @@ function createNewGrid(n) {
     },
     false
   );
+
+  container.addEventListener(
+    "touchstart",
+    (e) => {
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      updateGridSquare(e);
+    },
+    false
+  );
+
 }
 
 function requestNewGrid() {
