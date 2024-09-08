@@ -43,13 +43,12 @@ function createNewGrid(n) {
   container.addEventListener(
     "touchstart",
     (e) => {
-      ev.preventDefault();
-      ev.stopImmediatePropagation();
       updateGridSquare(e);
     },
     false
   );
 
+  /*
   container.addEventListener(
     "touchmove",
     (e) => {
@@ -59,6 +58,7 @@ function createNewGrid(n) {
     },
     false
   );
+  */
 
 }
 
