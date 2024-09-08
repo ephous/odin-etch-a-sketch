@@ -117,6 +117,12 @@ document.querySelector("#eraser-mode").addEventListener("click",
     }
 );
 
+
+// initialize
+let mouseDown = false;
+let drawWithoutMousedown = true;
+let eraserMode = false;
+
 // initialize size for mobile phone
 // https://bito.ai/resources/javascript-check-if-mobile-javascript-explained
 if (navigator.userAgent.match(/iPhone/i) ||
@@ -124,11 +130,8 @@ if (navigator.userAgent.match(/iPhone/i) ||
     navigator.userAgent.match(/Android/i)) { 
     container.style.width = '250px';
     container.style.height = '250px';
+    createNewGrid(8); // mobile
+  } else {
+    createNewGrid(16); // computer
   }
 
-
-// initialize
-let mouseDown = false;
-let drawWithoutMousedown = true;
-let eraserMode = false;
-createNewGrid(16);
