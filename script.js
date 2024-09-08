@@ -33,14 +33,15 @@ function touch2Mouse(e)
   }
   
   if( currentElementUnderTouch==null){
-    currentElementUnderTouch = e.target.id;
+    currentElementUnderTouch = e.target;
   } else {
-    if( currentElementUnderTouch == e.target.id){
+    if( currentElementUnderTouch === e.target){
       return;
     }
+    currentElementUnderTouch = e.target;
   }
-
-  var mouseEvent = container.createEvent("MouseEvent");
+  
+  var mouseEvent = document.createEvent("MouseEvent");
   mouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
   theTouch.target.dispatchEvent(mouseEvent);
   e.preventDefault();
