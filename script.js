@@ -125,7 +125,7 @@ let eraserMode = false;
 
 // initialize size for mobile phone
 // https://bito.ai/resources/javascript-check-if-mobile-javascript-explained
-if (navigator.userAgent.match(/Linux/i) {
+if (navigator.userAgent.match(/Linux/i)) {
   createNewGrid(16); // assumed linux computer
 } else if (navigator.userAgent.match(/iPhone/i) ||
     navigator.userAgent.match(/iPad/i) ||
