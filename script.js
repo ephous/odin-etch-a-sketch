@@ -3,15 +3,20 @@ const container = document.querySelector("#container");
 function updateGridSquare(e) {
     if (!e.target.className.includes("grid-square")) return;
     
-    let opacity;
-    opacity = 0.1 + Number(e.target.style.opacity);
-    opacity = Math.min(opacity, 1.0);
     if (eraserMode) {
         e.target.style.opacity = 0.5;
         e.target.style.backgroundColor = 'white';
     } else {
-        e.target.style.backgroundColor = 'rebeccapurple';
-        e.target.style.opacity = opacity;
+      let opacity;
+      if (e.target.style.backgroundColor == 'white'){
+        // clicked on a blank or erased pixel
+        opacity = 0.1;
+      } else {
+        opacity = 0.1 + Number(e.target.style.opacity);
+        opacity = Math.min(opacity, 1.0);
+      }
+      e.target.style.opacity = opacity;
+      e.target.style.backgroundColor = 'rebeccapurple';
     }
     
 };
@@ -45,10 +50,10 @@ function touch2Mouse(e) {
     }
     case "touchmove": {
       if( currentElementUnderTouch == elem ) {
-        console.log('returning...');
+        //console.log('returning...');
         return;
       }
-      console.log('continuing...');
+      //console.log('continuing...');
       currentElementUnderTouch = elem;
       mouseEv="mouseover";
       theTouch = new Touch(
